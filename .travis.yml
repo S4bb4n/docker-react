@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t s4bb4n/docker-react -f Dockerfile.dev .
+
+
+script:
+  - docker run s4bb4n/docker-react npm run test -- --coverage
